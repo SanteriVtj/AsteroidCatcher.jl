@@ -23,7 +23,7 @@ function icosphere(subdivision::Int)
 	midpoint_cache = Dict{Tuple{Int,Int},Int}()
 
     	function _midpoint(i,j)
-		key = i < j = (i,j) : (j,i)
+		key = i < j ? (i,j) : (j,i)
 	     	haskey(midpoint_cache, key) && return midpoint_cache[key]
 	     	m = (verts[i].+verts[j])./2.0
 	     	push!(verts, m./norm(m))
@@ -37,7 +37,7 @@ function icosphere(subdivision::Int)
 		for (a,b,c) in faces
 			ab = _midpoint(a,b)
 			bc = _midpoint(b,c)
-			cd = _midpoint(c,a)
+			ca = _midpoint(c,a)
 			push!(new_faces, (a,ab,ca))
 			push!(new_faces, (b, bc, ab))
 			push!(new_faces, (c, ca, bc))

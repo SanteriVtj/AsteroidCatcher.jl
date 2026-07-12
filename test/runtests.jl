@@ -1,6 +1,7 @@
 using AsteroidCatcher
 using Test
+using Statistics
+using LinearAlgebra
+using Random
 
-@testset "AsteroidCatcher.jl" begin
-    # Write your tests here.
-end
+include("test_mesh.jl")
