@@ -1,5 +1,9 @@
 module AsteroidCatcher
 
-# Write your package code here.
+	using LinearAlgebra, Statistics, Printf, Random, Optim
 
+
+	include("Mesh.jl")
+
+	export IcosphereMesh, icosphere, nvertices, vertex_positions
 end
